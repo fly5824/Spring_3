@@ -4,7 +4,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<mapper namespace ="com.naver.s3.bankbook,BankBookDAO">
+<mapper namespace ="com.naver.s3.bankbook.BankBookDAO">
 
 	<insert id="setWrite" parameterType="com.naver.s3.bankbook.BankBookDTO">
 		insert into bankbook values(bank_seq.nextvalue,#{bookName},#{bookRate},#{bookSale})
