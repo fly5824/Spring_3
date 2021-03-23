@@ -12,19 +12,19 @@ public class MemberDAOTest extends MyAbstractTest {
 	@Autowired
 	private MemberDAO memberDAO;
 	
-	
-	
-	@Test
-	public void memberLogin()throws Exception{
-		MemberDTO memberDTO = new MemberDTO();
-		
-		memberDTO.setId("id14");
-		memberDTO.setPw("pw14");
-		memberDTO = memberDAO.memberLogIn(memberDTO);
-		
-		assertNotNull(memberDTO);
-		
-	}
+//	
+//	
+//	@Test
+//	public void memberLogin()throws Exception{
+//		MemberDTO memberDTO = new MemberDTO();
+//		
+//		memberDTO.setId("id14");
+//		memberDTO.setPw("pw14");
+//		memberDTO = memberDAO.memberLogIn(memberDTO);
+//		
+//		assertNotNull(memberDTO);
+//		
+//	}
 	
 	
 //	@Test
@@ -43,22 +43,22 @@ public class MemberDAOTest extends MyAbstractTest {
 	
 	
 	
-//	@Test
-//	public void memberUpdateTest () throws Exception {
-//		MemberDTO memberDTO = new MemberDTO();
-//		
-//		memberDTO.setId("id10");
-//		memberDTO.setEmail("hihi@naver.com");
-//		memberDTO.setName("hihi");
-//		memberDTO.setPhone("01022334455");
-//		memberDTO.setPw("hihi");
-//		
-//		int result = memberDAO.memberUpdate(memberDTO);
-//		
-//		assertEquals(1, result);
-//		
-//	}
-//	
+	@Test
+	public void memberUpdateTest () throws Exception {
+		MemberDTO memberDTO = new MemberDTO();
+		
+		memberDTO.setId("id1");
+		memberDTO.setEmail("hihi@naver.com");
+		memberDTO.setName("hihi");
+		memberDTO.setPhone("01022334455");
+		memberDTO.setPw("hihi");
+		
+		int result = memberDAO.memberUpdate(memberDTO);
+		
+		assertEquals(1, result);
+		
+	}
+	
 //	@Test
 //	public void memberDeleteTest() throws Exception{
 //		MemberDTO memberDTO = new MemberDTO();
@@ -69,7 +69,7 @@ public class MemberDAOTest extends MyAbstractTest {
 //		assertEquals(1, result);
 //		
 //	}
-//	
+	
 	
 	
 
