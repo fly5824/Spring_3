@@ -17,7 +17,7 @@
 		<!-- Connection 객체와 xml파일 위치 설정 -->
 		<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
-		<property name="mapperLocations" value="classpath:database/mappers/*Mappers.xml"></property>
+		<property name="mapperLocations" value="classpath:database/mappers/*Mapper.xml"></property>
 		</bean>
 		
 		<!-- 미리전송, 결과 맵핑 -->
