@@ -2,43 +2,42 @@ package com.naver.s3.member;
 
 public class MemberDTO {
 	
-private String ID;
-private String PW;
-private String EMAIL;
-private String NAME;
-private String MOBILE; 
+private String id;
+private String pw;
+private String email;
+private String phone;
+private String name;
 
-public String getID() {
-	return ID;
+public String getId() {
+	return id;
 }
-public void setID(String iD) {
-	ID = iD;
+public void setId(String id) {
+	this.id = id;
 }
-public String getPW() {
-	return PW;
+public String getPw() {
+	return pw;
 }
-public void setPW(String pW) {
-	PW = pW;
+public void setPw(String pw) {
+	this.pw = pw;
 }
-public String getEMAIL() {
-	return EMAIL;
+public String getEmail() {
+	return email;
 }
-public void setEMAIL(String eMAIL) {
-	EMAIL = eMAIL;
+public void setEmail(String email) {
+	this.email = email;
 }
-public String getNAME() {
-	return NAME;
+public String getPhone() {
+	return phone;
 }
-public void setNAME(String nAME) {
-	NAME = nAME;
+public void setPhone(String phone) {
+	this.phone = phone;
 }
-public String getMOBILE() {
-	return MOBILE;
+public String getName() {
+	return name;
 }
-public void setMOBILE(String mOBILE) {
-	MOBILE = mOBILE;
-}
-
+public void setName(String name) {
+	this.name = name;
+} 
 
 
 }

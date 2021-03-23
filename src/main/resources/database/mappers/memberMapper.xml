@@ -7,9 +7,8 @@
   <mapper namespace="com.naver.s3.member.MemberDAO">
   
   <update id="memberUpdate" parameterType="com.naver.s3.member.MemberDTO">
-  
-  update member set 
-  
+  update member set pw=#{pw},email=#{email},name=#{name},phone=#{phone} where id=#{id}
+ 
   </update>
   
   
