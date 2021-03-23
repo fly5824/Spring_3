@@ -16,6 +16,10 @@
   
   </delete>
   
+  <insert id="memberJoin" parameterType="com.naver.s3.member.MemberDTO">
+  	insert into member values(#{id},#{pw},#{name},#{phone},#{email})
+  
+  </insert>
   
   
   </mapper>

@@ -12,6 +12,22 @@ public class MemberDAOTest extends MyAbstractTest {
 	@Autowired
 	private MemberDAO memberDAO;
 	
+	@Test
+	public void memberJoinTest()throws Exception{
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setId("id16");
+		memberDTO.setPw("pw16");
+		memberDTO.setName("id16");
+		memberDTO.setEmail("id16@naver.com");
+		memberDTO.setPhone("1016161616");
+		
+		int result = memberDAO.memberJoin(memberDTO);
+		
+		assertEquals(1, result);
+	}
+	
+	
+	
 //	@Test
 //	public void memberUpdateTest () throws Exception {
 //		MemberDTO memberDTO = new MemberDTO();
@@ -27,17 +43,18 @@ public class MemberDAOTest extends MyAbstractTest {
 //		assertEquals(1, result);
 //		
 //	}
-	
-	@Test
-	public void memberDeleteTest() throws Exception{
-		MemberDTO memberDTO = new MemberDTO();
-		
-		memberDTO.setId("id10");
-		int result = memberDAO.memberDelete(memberDTO);
-		
-		
-	}
-	
+//	
+//	@Test
+//	public void memberDeleteTest() throws Exception{
+//		MemberDTO memberDTO = new MemberDTO();
+//		
+//		memberDTO.setId("id10");
+//		int result = memberDAO.memberDelete(memberDTO);
+//		
+//		assertEquals(1, result);
+//		
+//	}
+//	
 	
 	
 

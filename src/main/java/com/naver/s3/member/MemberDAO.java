@@ -32,34 +32,12 @@ public class MemberDAO {
 	}
 	
 	
-//	public int memberJoin(MemberDTO memberDTO)throws Exception {
-//		String user = "user01";
-//		String pw = "user01";
-//		String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
-//		String driver = "oracle.jdbc.driver.OracleDriver";
-//		
-//		Class.forName(driver);
-//		
-//		Connection con = DriverManager.getConnection(url, user, pw);
-//		
-//		String sql = "insert into member values(?,?,?,?,?)";
-//		PreparedStatement st = con.prepareStatement(sql);
-//		
-//		st.setString(1, memberDTO.getID());
-//		st.setString(2, memberDTO.getPW());
-//		st.setString(3, memberDTO.getNAME());
-//		st.setString(4, memberDTO.getMOBILE());
-//		st.setString(5, memberDTO.getEMAIL());
-//		
-//		int result = st.executeUpdate();
-//		
-//		st.close();
-//		con.close();
-//		
-//		return result;
-//		
-//	}
-//	
+	public int memberJoin(MemberDTO memberDTO)throws Exception {
+	
+		return sqlSession.insert(NAMESPACE+".memberJoin",memberDTO);
+		
+	}
+	
 //	public MemberDTO logIn(MemberDTO memberDTO) throws Exception {
 //		
 //		String user = "user01";
@@ -92,9 +70,9 @@ public class MemberDAO {
 //		con.close();
 //		
 //		return memberDTO;
-//		 
-//		
-//		
-//	}
+		 
+		
+		
+	}
 
-}
+
