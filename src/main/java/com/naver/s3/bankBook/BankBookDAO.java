@@ -18,6 +18,19 @@ public class BankBookDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.naver.s3.bankBook.BankBookDAO";
 	
+	public int setUpdate(BankBookDTO bankBookDTO)throws Exception{
+		
+		return sqlSession.update(NAMESPACE+".setUpdate",bankBookDTO);
+		
+	}
+	
+	
+	public int setDelete(BankBookDTO bankBookDTO)throws Exception{
+		
+		return sqlSession.delete(NAMESPACE+".setDelete", bankBookDTO);
+		
+	}
+	
 	
 
 	public int setWrite(BankBookDTO bankBookDTO)throws Exception{
@@ -29,11 +42,8 @@ public class BankBookDAO {
 	}
 
 	public List<BankBookDTO> getList()throws Exception {
-		ArrayList<BankBookDTO> ar = new ArrayList();
-
 		
-
-		return ar;
+		return sqlSession.selectList(NAMESPACE+".getList");
 	}
 
 	public BankBookDTO getSelect(BankBookDTO bankBookDTO)throws Exception {

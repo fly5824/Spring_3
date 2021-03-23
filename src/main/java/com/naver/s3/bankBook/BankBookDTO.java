@@ -6,6 +6,7 @@ public class BankBookDTO {
 	private String bookName;
 	private long bookRate;
 	private String bookSale;
+	
 	public long getBookNumber() {
 		return bookNumber;
 	}
