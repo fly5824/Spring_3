@@ -11,7 +11,10 @@
  
   </update>
   
+  <delete id="memberDelete" parameterType="com.naver.s3.member.MemberDTO">
+ 	 delete member where id=#{id}
   
+  </delete>
   
   
   
