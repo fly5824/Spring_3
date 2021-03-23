@@ -7,7 +7,7 @@
 <mapper namespace ="com.naver.s3.bankBook.BankBookDAO">
 
 	<insert id="setWrite" parameterType="com.naver.s3.bankBook.BankBookDTO">
-		insert into bankbook values(bank_seq.nextvalue,#{bookName},#{bookRate},#{bookSale})
+		insert into bankbook values(bank_seq.nextval,#{bookName},#{bookRate},#{bookSale})
 	</insert>
 
 </mapper> 
