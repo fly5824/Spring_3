@@ -2,15 +2,14 @@ package com.naver.s3.bankBook;
 
 public class BankBookDTO {
 	
-	private int bookNumber;
+	private long bookNumber;
 	private String bookName;
-	private int bookRate;
+	private long bookRate;
 	private String bookSale;
-	
-	public int getBookNumber() {
+	public long getBookNumber() {
 		return bookNumber;
 	}
-	public void setBookNumber(int bookNumber) {
+	public void setBookNumber(long bookNumber) {
 		this.bookNumber = bookNumber;
 	}
 	public String getBookName() {
@@ -19,10 +18,10 @@ public class BankBookDTO {
 	public void setBookName(String bookName) {
 		this.bookName = bookName;
 	}
-	public int getBookRate() {
+	public long getBookRate() {
 		return bookRate;
 	}
-	public void setBookRate(int bookRate) {
+	public void setBookRate(long bookRate) {
 		this.bookRate = bookRate;
 	}
 	public String getBookSale() {
@@ -31,7 +30,6 @@ public class BankBookDTO {
 	public void setBookSale(String bookSale) {
 		this.bookSale = bookSale;
 	}
-	
 	
 	
 }

@@ -16,17 +16,23 @@ public class BankBookDAOTest extends MyAbstractTest {
 	private BankBookDAO bankBookDAO;
 	
 	@Test
-	public void setWriteTest() throws Exception {
-		BankBookDTO bankBookDTO = new BankBookDTO();
-		
-		bankBookDTO.setBookName("Test");
-		bankBookDTO.setBookRate(1);
-		bankBookDTO.setBookSale("y");
-			
-		int result = bankBookDAO.setWrite(bankBookDTO);
-		
-		assertEquals(1, result);
+	public void getSelectTest() throws Exception {
+		BankBookDTO bankBookDTO = bankBookDAO.getSelect(null);
+		assertNotNull(bankBookDTO);
+	}
+	
+//	@Test
+//	public void setWriteTest() throws Exception {
+//		BankBookDTO bankBookDTO = new BankBookDTO();
+//		
+//		bankBookDTO.setBookName("Test");
+//		bankBookDTO.setBookRate(11);
+//		bankBookDTO.setBookSale("y");
+//			
+//		int result = bankBookDAO.setWrite(bankBookDTO);
+//		
+//		assertEquals(1, result);
 
 	} 
 
-}
+

@@ -9,5 +9,10 @@
 	<insert id="setWrite" parameterType="com.naver.s3.bankBook.BankBookDTO">
 		insert into bankbook values(bank_seq.nextval,#{bookName},#{bookRate},#{bookSale})
 	</insert>
+	
+	<select id="getSelect" parameterType="java.lang.Long" resultType="com.naver.s3.bankBook.BankBookDTO">
+	
+	select * from bankbook where bookNumber=#{num}
+	</select>
 
 </mapper> 
