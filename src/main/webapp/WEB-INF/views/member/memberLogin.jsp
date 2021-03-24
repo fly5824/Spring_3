@@ -10,5 +10,11 @@
 
 <h1>Member Login Page</h1>
 
+	<form action="./memberLogin">
+	id <input type="text" name="id">
+	pw <input type="password" name="pw">
+	<button>login</button>
+	</form>
+
 </body>
 </html>
