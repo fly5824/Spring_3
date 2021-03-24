@@ -13,5 +13,10 @@
 
 <a href="./bankbook/bankbookList">bank book list</a>
 <!-- views 까지 현재위치 -->
+
+<a href="./member/memberJoin">Join</a>
+<a href="./member/memberLogin">Login</a>
+
+
 </body>
 </html>
