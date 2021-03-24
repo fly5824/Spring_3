@@ -16,5 +16,9 @@
 	
 	<a href="./bankbookDelete?bookNumber=${dto.bookNumber}">Delete</a>
 	
+	<a href="./bankbookUpdate?bookNumber=${dto.bookNumber}">Update</a>
+	
+	<!-- a태그의 주소는 현재 위치를 기준으로 상대경로 -->
+	
 </body>
 </html>

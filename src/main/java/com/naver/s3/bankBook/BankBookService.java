@@ -12,6 +12,13 @@ public class BankBookService {
 	private BankBookDAO bankBookDAO;
 
 	
+	public int setUpdate(BankBookDTO bankBookDTO) throws Exception{
+		return bankBookDAO.setUpdate(bankBookDTO);
+		
+	}
+	
+	
+	
 	public List<BankBookDTO> getList() throws Exception{
 		
 		return bankBookDAO.getList();
