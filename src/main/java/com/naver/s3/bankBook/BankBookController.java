@@ -34,7 +34,15 @@ public class BankBookController {
 		return mv;
 		// 뱅크북 서비스 메서드 호출 -> 모델앤뷰 객체 -> 애드 오브젝트 -> 셋뷰네임(제이에스피의 경로)
 		
+	}
+	
+	@RequestMapping(value = "bankbookDelete")
+	public String setDelete(BankBookDTO bankBookDTO) throws Exception{
+		int result = bankBookService.setDelete(bankBookDTO);
 		
+	
+		
+		return "redirect:./bankbookList";
 	}
 	
 }

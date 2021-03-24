@@ -22,4 +22,9 @@ public class BankBookService {
 		
 		return bankBookDAO.getSelect(bankBookDTO);
 	}
+	
+	public int setDelete(BankBookDTO bankBookDTO) throws Exception {
+		
+		return bankBookDAO.setDelete(bankBookDTO);
+	}
 }
