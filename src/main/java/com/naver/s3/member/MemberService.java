@@ -7,10 +7,16 @@ import org.springframework.stereotype.Service;
 public class MemberService {
 
 	@Autowired
-	MemberDAO memberDAO;
+	private MemberDAO memberDAO;
 	
 	public MemberDTO memberLogin(MemberDTO memberDTO) throws Exception{
 		
 		return memberDAO.memberLogIn(memberDTO);
 	}
+	
+	public int memberJoin(MemberDTO memberDTO) throws Exception{
+		
+		return memberDAO.memberJoin(memberDTO);
+	}
+	
 }
