@@ -11,11 +11,11 @@
 <h1>Member Join Page</h1>
 
 	<form action="./memberJoin" method="post">
-	id <input type="text" id="id"><br>
-	pw <input type="text" pw="pw"><br>
+	id <input type="text" name="id"><br>
+	pw <input type="text" name="pw"><br>
 	name <input type="text" name="name"><br>
-	phone <input type="text" phone="phone"><br>
-	email <input type="text" email="email"><br>
+	phone <input type="text" name="phone"><br>
+	email <input type="text" name="email"><br>
 	<button>Join</button>
 </form>
 </body>

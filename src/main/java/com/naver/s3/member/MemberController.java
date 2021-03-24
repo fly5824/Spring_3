@@ -1,5 +1,7 @@
 package com.naver.s3.member;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,9 +22,13 @@ public class MemberController {
 		
 	}
 	@RequestMapping(value="memberLogin" ,method = RequestMethod.POST)
-	public String memberLogin(MemberDTO memberDTO)throws Exception{
+	public String memberLogin(MemberDTO memberDTO,HttpSession session)throws Exception{
 		//받아온 파라미터를 서비스로 넘기는거
 		memberDTO=memberService.memberLogin(memberDTO);
+		System.out.println(memberDTO);
+		session.setAttribute("member", memberDTO);
+		//리퀘스트가 발생하더라도 일정시간동안 혹은 웹브라우저를 닫기 전까지 살아있음
+		// 이 세션은 home.jsp에서 쓰기위해서 
 		
 		return "redirect:../"; //루트로 올라감 인덱스페이지 현재는 member폴더안
 	}
@@ -41,6 +47,14 @@ public class MemberController {
 		return "redirect:../";
 		
 	}	
+	
+	@RequestMapping("memberUpdate")
+	public void memberUpdate()throws Exception{
+		
+	
+		
+	}
+	
 	
 		}
 	

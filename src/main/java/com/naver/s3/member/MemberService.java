@@ -19,4 +19,9 @@ public class MemberService {
 		return memberDAO.memberJoin(memberDTO);
 	}
 	
+	public int memberUpdate(MemberDTO memberDTO)throws Exception{
+		
+		return memberDAO.memberUpdate(memberDTO);
+	}
+	
 }
