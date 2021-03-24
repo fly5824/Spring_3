@@ -47,8 +47,8 @@ public class BankBookDAO {
 	}
 
 	public BankBookDTO getSelect(BankBookDTO bankBookDTO)throws Exception {
-		long num = 1L;
-		bankBookDTO= sqlSession.selectOne(NAMESPACE+".getSelect", num);
+		
+		bankBookDTO= sqlSession.selectOne(NAMESPACE+".getSelect", bankBookDTO);
 		
 
 		return bankBookDTO;
