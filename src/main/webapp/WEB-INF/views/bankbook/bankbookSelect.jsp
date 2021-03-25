@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,10 +15,12 @@
 	<h3>name : ${dto.bookName}</h3>
 	<h3>number : ${dto.bookNumber}</h3>
 	
-	<a href="./bankbookDelete?bookNumber=${dto.bookNumber}">Delete</a>
-	
+	<c:catch>
+	<c:if test="${member.id eq 'admin'}">
+	<a href="./bankbookDelete?bookNumber=${dto.bookNumber}">Delete</a>	
 	<a href="./bankbookUpdate?bookNumber=${dto.bookNumber}">Update</a>
-	
+	</c:if>
+	</c:catch>
 	<!-- a태그의 주소는 현재 위치를 기준으로 상대경로 -->
 	
 </body>
