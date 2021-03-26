@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<h1>Member Page</h1>
 	<h3>${member.id}</h3>
 	<h3>${member.name}</h3>

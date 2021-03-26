@@ -9,7 +9,9 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+
 <c:import url="./template/bootStrap.jsp"></c:import>
+
 
 <title>Home</title>
 </head>
@@ -116,9 +118,6 @@ Notice Service
 		글삭제
 		/notice/noticeDelete
  -->
-
-
-
 
 
 
