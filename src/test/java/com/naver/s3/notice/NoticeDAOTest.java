@@ -22,12 +22,26 @@ public class NoticeDAOTest extends MyAbstractTest {
 //		assertNotEquals(0, ar.size());
 //	}
 	
+//	@Test
+//	public void getSelectTest()throws Exception{
+//		NoticeDTO noticeDTO = new NoticeDTO();
+//		noticeDTO.setNum(1);
+//		noticeDTO = noticeDAO.getSelect(noticeDTO);
+//				
+//		assertNotNull(noticeDTO);
+//	}
+	
 	@Test
-	public void getSelectTest()throws Exception{
+	public void setInsertTest()throws Exception{
+		NoticeDTO noticeDTO = new NoticeDTO();
+		noticeDTO.setContents("석희석희지윤");
+		noticeDTO.setHit(30);
+		noticeDTO.setTitle("석희와지윤이");
+		noticeDTO.setWriter("admin");
 		
-		NoticeDTO noticeDTO = noticeDAO.getSelect(null);
-				
-		assertNotNull(noticeDTO);
+		int result = noticeDAO.setInsert(noticeDTO);
+		
+		assertEquals(1, result);
 	}
 	
 

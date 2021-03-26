@@ -14,6 +14,10 @@
 	select * from notice where num= #{num}
 </select>
 
+<insert id="setInsert" parameterType="NoticeDTO">
+	insert into notice values(NOTICE_SEQ.nextval,#{title},#{writer},#{contents},#{hit},sysdate)
+</insert>
+
 
 
 

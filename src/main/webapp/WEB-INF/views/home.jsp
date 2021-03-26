@@ -79,7 +79,7 @@ back - end
 	-com.naver.s3.notice
 noticeMapper
 Notice DAO
-	getList		: 글 리스트
+	getList		: 글 리스트 
 	getSelect	: 상세보기
 	setInsert	: 글작성
 	setUpdate	:글수정

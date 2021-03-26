@@ -22,5 +22,12 @@ public class NoticeDAO {
 		noticeDTO =sqlSession.selectOne(NAMESPACE+".getSelect",noticeDTO);
 		return noticeDTO;
 	}
+	
+	public int setInsert(NoticeDTO noticeDTO)throws Exception{
+		
+		int result = sqlSession.insert(NAMESPACE+".setInsert",noticeDTO);
+		
+		return result;
+	}
 
 }
