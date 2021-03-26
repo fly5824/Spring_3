@@ -1,31 +1,125 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<html>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!doctype html>
+<html lang="en">
 <head>
-	<title>Home</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<c:import url="./template/bootStrap.jsp"></c:import>
+
+<title>Home</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
+	
+	<c:import url="./template/header.jsp"></c:import>
 
-<P>  The time on the server is ${serverTime}. </P>
+<div class="container" style="margin-top:30px">
+  <div class="row">
+    <div class="col-sm-4">
+      <h2>About Me</h2>
+      <h5>Photo of me:</h5>
+      <div class="fakeimg">Fake Image</div>
+      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+      <h3>Some Links</h3>
+      <p>Lorem ipsum dolor sit ame.</p>
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+      <hr class="d-sm-none">
+    </div>
+    <div class="col-sm-8">
+      <h2>TITLE HEADING</h2>
+      <h5>Title description, Dec 7, 2017</h5>
+      <div class="fakeimg">Fake Image</div>
+      <p>Some text..</p>
+      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      <br>
+      <h2>TITLE HEADING</h2>
+      <h5>Title description, Sep 2, 2017</h5>
+      <div class="fakeimg">Fake Image</div>
+      <p>Some text..</p>
+      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+    </div>
+  </div>
+</div>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <p>Footer</p>
+</div>
+
+<!-- 
+
+기능
+글리스트
+상세보기 - 글리스트에서 제목을 클릭하면 상세보기
+글수정 - 관리자만
+글삭제- 관리자만
+글작성 - 관리자만
+
+back - end
+	noticeMapper
+
+	-com.naver.s3.notice
+noticeMapper
+Notice DAO
+	getList		: 글 리스트
+	getSelect	: 상세보기
+	setInsert	: 글작성
+	setUpdate	:글수정
+	setDelete	:글삭제
+	setHitUpdate:조회수1증가
+	
+Notice DTO
+Notice Controller
+	getList		: 글 리스트
+	getSelect	: 상세보기
+	setInsert	: 글작성  *2
+	setUpdate	:글수정 *2
+	setDelete	:글삭제
+Notice Service
+	getList		: 글 리스트
+	getSelect	: 상세보기
+	setInsert	: 글작성  
+	setUpdate	:글수정
+	setDelete	:글삭제
+	
+	
+	front-end
+		- /WEN-INF/views/notice/
+		
+		글리스트 
+		/notice/noticeList   get   noticeList.jsp
+		글상세보기 
+		/notice/noticeSelect  get   noticeSelect.jsp
+		글작성
+		/notice/noticeInsert  get   noticeInsert.jsp
+		/notice/noticeInsert post 글리스트로이동
+		글수정
+		/notice/noticeUpdate get noticeUpdate.jsp
+		/notice/noticeUpdate post 글리스트로이동
+		
+		글삭제
+		/notice/noticeDelete
+ -->
 
 
-<a href="./bankbook/bankbookList">bank book list</a>
-<!-- views 까지 현재위치 -->
 
-<c:if test="${empty member}">
-<a href="./member/memberJoin">Join</a>
-<a href="./member/memberLogin">Login</a>
-</c:if>
 
-<c:if test="${not empty member}">
-<h3>${member.id}님 환영합니다</h3>
-<a href="./member/memberPage">MyPage</a>
-<a href="./member/memberLogout">Logout</a>
-</c:if>
 
 
 </body>
