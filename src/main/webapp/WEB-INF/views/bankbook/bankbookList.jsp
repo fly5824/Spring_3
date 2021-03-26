@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+  
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -10,7 +10,10 @@
 </head>
 <body>
 
-<h1>Bank Book List</h1>
+<c:import url="../templet/header.jsp"></c:import>
+
+<div class = "container"></div>
+<h2>Bank Book List</h2>
 
 <table>
 	<thead>
@@ -33,6 +36,8 @@
 	</tbody>
 
 </table>
+
+
 
 </body>
 </html>

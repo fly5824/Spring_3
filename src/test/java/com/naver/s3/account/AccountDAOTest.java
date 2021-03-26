@@ -29,7 +29,7 @@ public class AccountDAOTest extends MyAbstractTest{
 		accountDTO.setId("iu");
 		accountDTO.setAccountBalance(33);
 		accountDTO.setAccountNumber("123-456-7");
-		accountDTO.setBookNumber(2);
+		accountDTO.setBookNumber(3);
 		
 		
 	}

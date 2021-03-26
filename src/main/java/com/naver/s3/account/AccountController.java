@@ -18,6 +18,16 @@ public class AccountController {
 	@Autowired
 	private AccountService accountService;
 	
+	@RequestMapping("accountInsert")
+	public String setInsert(AccountDTO accountDTO,HttpSession session )throws Exception{
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+		accountDTO.setId(memberDTO.getId());
+		
+		int result = accountService.setInsert(accountDTO);
+		return "redirect:./accountList";
+		//북넘버랑(jsp에서 파라미터로) 아이디 준비 완
+	}
+	
 	@RequestMapping("accountList")
 	public void accountList(HttpSession session, Model model)throws Exception{
 		
