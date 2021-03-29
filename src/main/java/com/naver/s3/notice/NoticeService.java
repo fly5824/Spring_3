@@ -17,7 +17,7 @@ public class NoticeService {
 	public List<NoticeDTO> getList(long curPage)throws Exception{
 		Pager pager = new Pager();
 		long perPage = 10;
-		pager.setStartRow((curPage-1*perPage+1));
+		pager.setStartRow((curPage-1)*perPage+1);
 		pager.setLastRow(curPage*perPage);
 		return noticeDAO.getList(pager);
 	}
