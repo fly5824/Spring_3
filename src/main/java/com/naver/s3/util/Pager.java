@@ -16,6 +16,14 @@ public class Pager {
 	}
 	private long startRow;
 	private long lastRow;
+	private long totalPage;
+	
+	public long getTotalPage() {
+		return totalPage;
+	}
+	public void setTotalPage(long totalPage) {
+		this.totalPage = totalPage;
+	}
 	public long getStartRow() {
 		return startRow;
 	}

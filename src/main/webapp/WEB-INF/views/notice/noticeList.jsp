@@ -42,6 +42,17 @@
 </table>
 
 </div>
+
+<div class="container">
+    <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+   <c:forEach begin="1" end="${pager.totalPage}" var="i">
+    <li class="page-item"><a class="page-link" href="./noticeList?curPage=${i}">${i}</a></li>
+</c:forEach>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+  
+</div>
 <c:catch>
 <c:if test="${member.id eq 'admin'}">
 <h3><a href="./noticeInsert">글작성</a></h3>
