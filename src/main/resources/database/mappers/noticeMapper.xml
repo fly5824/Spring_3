@@ -6,6 +6,10 @@
     
 <mapper namespace ="com.naver.s3.notice.NoticeDAO">
 
+<select id="getTotalCount" resultType="Long">
+	select count(num) from notice
+</select>
+
 <select id="getList" resultType="NoticeDTO" parameterType="Pager">
 	select*from
 		(select rownum R, N.* from

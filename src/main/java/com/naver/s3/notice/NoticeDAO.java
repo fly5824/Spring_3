@@ -16,6 +16,10 @@ public class NoticeDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.naver.s3.notice.NoticeDAO";
 	
+	public Long getTotalCount()throws Exception{
+		return sqlSession.selectOne(NAMESPACE+".getTotalCount");
+	}
+	
 	public List<NoticeDTO> getList(Pager pager)throws Exception {
 	
 		return sqlSession.selectList(NAMESPACE+".getList",pager);

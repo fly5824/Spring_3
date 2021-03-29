@@ -22,7 +22,9 @@ public class NoticeController {
 	@RequestMapping("noticeList")
 	public ModelAndView getList(Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
+		
 		System.out.println(pager.getCurPage());
+		
 		List<NoticeDTO>ar = noticeService.getList(pager);
 		//List<NoticeDTO> ar =noticeService.getList(curPage);
 		mv.addObject("list",ar);
