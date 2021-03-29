@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.naver.s3.util.Pager;
+
 @Controller
 @RequestMapping(value = "/bankbook/*")
 public class BankBookController {
@@ -37,7 +39,7 @@ public class BankBookController {
 	@RequestMapping(value = "bankbookList")
 	// 밸류값이 들어오면 실행할 메서드
 	public void getList(Model model) throws Exception {
-		List<BankBookDTO> ar = bankBookService.getList();
+		List<BankBookDTO> ar = bankBookService.getList(null);
 		// 그담에 제이에스피에 뿌리기	
 		model.addAttribute("list",ar); //이름, 보낼 데이터		
 	}

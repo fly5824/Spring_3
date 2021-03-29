@@ -3,29 +3,36 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    
-<mapper namespace ="com.naver.s3.bankBook.BankBookDAO">
 
-	<update id ="setUpdate" parameterType="BankBookDTO">
-	update bankbook set bookName=#{bookName}, bookRate=#{bookRate}, bookSale=#{bookSale} where bookNumber=#{bookNumber}
+<mapper namespace="com.naver.s3.bankBook.BankBookDAO">
+
+	<update id="setUpdate" parameterType="BankBookDTO">
+		update bankbook set bookName=#{bookName}, bookRate=#{bookRate},
+		bookSale=#{bookSale} where bookNumber=#{bookNumber}
 	</update>
 
 
 	<insert id="setWrite" parameterType="BankBookDTO">
-		insert into bankbook values(bank_seq.nextval,#{bookName},#{bookRate},#{bookSale})
+		insert into bankbook
+		values(bank_seq.nextval,#{bookName},#{bookRate},#{bookSale})
 	</insert>
-	
-	<select id="getSelect" parameterType="BankBookDTO" resultType="BankBookDTO">
-	
+
+	<select id="getSelect" parameterType="BankBookDTO"
+		resultType="BankBookDTO">
+
 		select * from bankbook where bookNumber=#{bookNumber}
 	</select>
 
-	<select id="getList" resultType="BankBookDTO">
-		select * from bankbook order by bookNumber desc
+	<select id="getList" resultType="BankBookDTO" parameterType="Pager">
+		select*from
+		(select rownum R, n.* from
+		(select * from bankbook where booknumber>0 order by booknumber desc) n)
+		where R between 1 and 10;
 	</select>
-	
+
 	<delete id="setDelete" parameterType="BankBookDTO">
-		delete bankbook where bookNumber = #{bookNumber}
+		delete bankbook where
+		bookNumber = #{bookNumber}
 	</delete>
 
 
