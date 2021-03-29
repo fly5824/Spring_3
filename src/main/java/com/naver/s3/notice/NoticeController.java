@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping(value = "/notice/*")
@@ -16,9 +17,13 @@ public class NoticeController {
 	private NoticeService noticeService;
 	
 	@RequestMapping("noticeList")
-	public void getList(Model model)throws Exception{
-		List<NoticeDTO> ar =noticeService.getList();
-		model.addAttribute("list",ar);
+	public ModelAndView getList(long curPage)throws Exception{
+		
+		ModelAndView mv = new ModelAndView();
+		List<NoticeDTO> ar =noticeService.getList(curPage);
+		mv.addObject("list",ar);
+		mv.setViewName("notice/noticeList");
+		return mv;
 	}
 	
 	@RequestMapping("noticeSelect")

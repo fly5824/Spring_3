@@ -11,10 +11,13 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 <div class="container mt-2">
+
+<div class="container">
+
 <h2 class="mt-4">Notice List Page</h2>
 
-<table>
-<thead>
+<table class="table">
+<thead class="thead-dark">
 		<tr>
 			<th>글번호</th>
 			<th>제목</th>
@@ -26,8 +29,8 @@
 <tbody>	
 <c:forEach items="${list}" var="dto">
 	<tr>
-		<td><a href="./noticeSelect?num=${dto.num}">${dto.num}</a></td>
-		<td>${dto.title}</td>
+		<td>${dto.num}</td>
+		<td><a href="./noticeSelect?num=${dto.num}">${dto.title}</a></td>
 		<td>${dto.writer}</td>
 		<td>${dto.hit}</td>
 		<td>${dto.regdate}</td>
@@ -38,7 +41,7 @@
 </tbody>
 </table>
 
-
+</div>
 <c:catch>
 <c:if test="${member.id eq 'admin'}">
 <h3><a href="./noticeInsert">글작성</a></h3>

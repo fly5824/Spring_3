@@ -10,6 +10,7 @@
 		<typeAlias type="com.naver.s3.bankBook.BankBookDTO" alias="BankBookDTO"/>
 		<typeAlias type="com.naver.s3.account.AccountDTO" alias="AccountDTO"/>
 		<typeAlias type="com.naver.s3.notice.NoticeDTO" alias="NoticeDTO"/>
+		<typeAlias type="com.naver.s3.util.Pager" alias="Pager"/>
 	
 	</typeAliases>
 
