@@ -18,6 +18,13 @@
 	insert into notice values(NOTICE_SEQ.nextval,#{title},#{writer},#{contents},#{hit},sysdate)
 </insert>
 
+<delete id="setDelete" parameterType="NoticeDTO">
+	delete notice where num=#{num}
+</delete>
+
+<update id="setUpdate" parameterType="NoticeDTO">
+	update notice set title=#{title},contents=#{contents} where num=#{num}
+</update>
 
 
 

@@ -31,19 +31,39 @@ public class NoticeDAOTest extends MyAbstractTest {
 //		assertNotNull(noticeDTO);
 //	}
 	
+//	@Test
+//	public void setInsertTest()throws Exception{
+//		NoticeDTO noticeDTO = new NoticeDTO();
+//		noticeDTO.setContents("석희석희지윤");
+//		noticeDTO.setHit(30);
+//		noticeDTO.setTitle("석희와지윤이");
+//		noticeDTO.setWriter("admin");
+//		
+//		int result = noticeDAO.setInsert(noticeDTO);
+//		
+//		assertEquals(1, result);
+//	}
+//	
+//	@Test
+//	public void setDeleteTest()throws Exception{
+//		NoticeDTO noticeDTO = new NoticeDTO();
+//		noticeDTO.setNum(1);
+//		int result = noticeDAO.setDelete(noticeDTO);
+//		
+//		assertEquals(1, result);
+//	}
 	@Test
-	public void setInsertTest()throws Exception{
+	public void setUpdate()throws Exception{
 		NoticeDTO noticeDTO = new NoticeDTO();
-		noticeDTO.setContents("석희석희지윤");
-		noticeDTO.setHit(30);
-		noticeDTO.setTitle("석희와지윤이");
-		noticeDTO.setWriter("admin");
+		noticeDTO.setNum(2);
+		noticeDTO.setTitle("업데이트타이틀");
+		noticeDTO.setContents("업데이트 컨텐츠");
 		
-		int result = noticeDAO.setInsert(noticeDTO);
+		int result = noticeDAO.setUpdate(noticeDTO);
 		
 		assertEquals(1, result);
 	}
-	
 
+	
 
 }

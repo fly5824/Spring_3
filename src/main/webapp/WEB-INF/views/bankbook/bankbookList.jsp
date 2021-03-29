@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<c:import url="../templet/header.jsp"></c:import>
+<c:import url="../template/header.jsp"></c:import>
 
 <div class = "container"></div>
 <h2>Bank Book List</h2>

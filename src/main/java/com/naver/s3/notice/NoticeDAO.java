@@ -29,5 +29,20 @@ public class NoticeDAO {
 		
 		return result;
 	}
+	
+	public int setDelete(NoticeDTO noticeDTO)throws Exception{
+	
+		int result = sqlSession.delete(NAMESPACE+".setDelete",noticeDTO);
+		
+		return result;
+	}
+	
+	public int setUpdate(NoticeDTO noticeDTO)throws Exception{
+		
+		int result = sqlSession.update(NAMESPACE+".setUpdate",noticeDTO);
+		return result;
+		
+	}
+	
+	}
 
-}
