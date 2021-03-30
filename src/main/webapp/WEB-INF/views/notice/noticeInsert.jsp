@@ -9,18 +9,26 @@
 <c:import url="../template/bootStrap.jsp"></c:import>
 </head>
 <body>
-<h1>Notice Insert Page</h1>
+<c:import url="../template/header.jsp"></c:import>
 
 <form action="./noticeInsert" method="post">
+<div class="container">
+<h1>Notice Insert Page</h1>
+<div class="form-group">
+  <label for="usr">title:</label>
+  <input type="text" class="form-control" name="title">
+</div>
+<div class="form-group">
+  <label for="usr">writer:</label>
+  <input type="text" class="form-control" name="writer" readonly="readonly"value="${member.id}">
 
-
-title: <input type="text" name="title"><br>
-writer: <input type="text" name="writer"><br>
-contents: <input type="text" name="contents"><br>
-hit: <input type="text" name="hit"><br>
-
-
+</div>
+<div class="form-group">
+  <label for="comment">contents:</label>
+  <textarea class="form-control" rows="5" name="contents"></textarea>
+</div>
 <button>submit</button>
+</div>
 
 </form>
 </body>

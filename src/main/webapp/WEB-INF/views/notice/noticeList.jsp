@@ -45,17 +45,37 @@
 
 <div class="container">
     <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <c:if test="${pager.pre}">
+    <li class="page-item"><a class="page-link" href="./noticeList?curPage=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}">Previous</a></li>
+   </c:if>
    <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-    <li class="page-item"><a class="page-link" href="./noticeList?curPage=${i}">${i}</a></li>
+    <li class="page-item"><a class="page-link" href="./noticeList?curPage=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li>
 </c:forEach>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+	<c:if test="${pager.next}">
+    <li class="page-item"><a class="page-link" href="./noticeList?curPage=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}">Next</a></li>
+  	</c:if>
   </ul>
+  
+  <div class="input-group mt-3 mb-3">
+<form action="./noticeList" class="form-inline">
+  <div class="input-group-prepend">
+   <select class="form-control" name="kind" id="sel1">
+    <option>Title</option>
+    <option>Contents</option>
+    <option>Writer</option>
+  </select>
+  </div>
+  <input type="text" class="form-control" name="search" placeholder="">
+    <div class="input-group-append">
+    <button class="btn btn-success" type="submit">Search</button>
+  </div>
+ </form> 
+  
   
 </div>
 <c:catch>
 <c:if test="${member.id eq 'admin'}">
-<h3><a href="./noticeInsert">글작성</a></h3>
+<a href="./noticeInsert" class="btn btn-info" role="button">글작성</a>
 </c:if>
 </c:catch>
 </div>

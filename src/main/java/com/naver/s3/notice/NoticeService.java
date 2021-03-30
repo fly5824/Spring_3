@@ -29,7 +29,7 @@ public class NoticeService {
 	
 		//--------------------------------------
 		//1. totalCount
-		long totalCount= noticeDAO.getTotalCount();
+		long totalCount= noticeDAO.getTotalCount(pager);
 		//2. totalPage
 		long totalPage= totalCount / perPage;
 		
@@ -50,6 +50,21 @@ public class NoticeService {
 		//5. startNum, lastNum
 		long startNum=(curBlock-1)*perBlock+1;
 		long lastNum=curBlock*perBlock;
+		
+		//6. curBlock이 totalBlock일때(=마지막 블럭)
+		if(curBlock == totalBlock) {
+			lastNum = totalPage;
+		}
+		
+		//7. 이전, 다음 block 존재여부
+		//이전
+		if(curBlock !=1) {
+			pager.setPre(true);
+		}
+		//다음
+		if(curBlock !=totalBlock) {
+			pager.setNext(true);
+		}
 		
 		pager.setStartNum(startNum);
 		pager.setLastNum(lastNum);
