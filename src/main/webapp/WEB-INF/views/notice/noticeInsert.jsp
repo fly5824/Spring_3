@@ -27,9 +27,12 @@
   <label for="comment">contents:</label>
   <textarea class="form-control" rows="5" name="contents"></textarea>
 </div>
-<button>submit</button>
+<button class ="btn btn-primary" onclick="insertCheck()">submit</button>
+<input type="button" value="WRITE" class ="btn btn-primary" onclick="insertCheck()">
 </div>
 
 </form>
+
+<script type="text/javascript" src="../resources/js/InsertCheck.js"></script>
 </body>
 </html>

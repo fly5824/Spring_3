@@ -17,14 +17,26 @@
 			<div class="form-group">
 				<label for="id">ID</label> 
 				<input type="text" class="form-control"	id="id" name="id">
+			<!-- id 는 6글자 이상 -->
+			
+			</div>
+			<div class="form-group">
+				<label for="pw">Password</label>
+				 <input type="password"
+					class="form-control" id="pw" name="pw">
+					<!--  pw 는 8 글자 이상 -->
+			</div>
+			
 			</div>
 			<div class="form-group">
 				<label for="pw">Password</label> <input type="password"
-					class="form-control" id="pw" name="pw">
+					class="form-control" id="pw2" name="pw">
+					<!-- pw  두개는 일치해야함 -->
 			</div>
 			<div class="form-group">
 				<label for="name">Name</label> 
 				<input type="text" class="form-control"	id="name" name="name">
+				<!-- 이름은 비어있으면 xx -->			
 			</div>	
 			
 			<div class="form-group">
@@ -35,7 +47,9 @@
 				<label for="phone">Phone</label> 
 				<input type="text" class="form-control"	id="phone" name="phone">
 			</div>			
+			
 			<button type="submit" class="btn btn-primary">Submit</button>
+			<input type = "button" value="JOIN" class="btn btn-primary" >
 		</form>
 	</div>
 </body>
