@@ -22,7 +22,7 @@
 
 <div class="form-check">
   <label class="form-check-label">
-   <input type="checkbox" class="form-check-input" class="check" value="">동의
+   <input type="checkbox" class="form-check-input check" value="">동의
   </label>
 </div>
 <div class="jumbotron">
@@ -32,7 +32,7 @@
 
 <div class="form-check">
   <label class="form-check-label">
-   <input type="checkbox" class="form-check-input" class="check" value="">동의
+   <input type="checkbox" class="form-check-input check"value="">동의
   </label>
 </div>
 <div class="jumbotron">
@@ -42,7 +42,7 @@
 
 <div class="form-check">
   <label class="form-check-label">
-   <input type="checkbox" class="form-check-input" class="check" value="">동의
+   <input type="checkbox" class="form-check-input check"value="">동의
   </label>
 </div>
 <div class="jumbotron">
@@ -52,7 +52,7 @@
 
 <div class="form-check">
   <label class="form-check-label">
-   <input type="checkbox" class="form-check-input" class="check" value="">동의
+   <input type="checkbox" class="form-check-input check" value="">동의
   </label>
 </div>
 <div class="jumbotron">
@@ -60,7 +60,7 @@
   <p>Bootstrap is the most popular HTML, CSS...</p>
 </div>
 
-<button class="btn btn-danger" onclick="check()">Join</button>
+<button class="btn btn-danger">Join</button>
 
 <script type = "text/javascript" src="../resources/js/memberJoinCheck.js"></script>
 </div>

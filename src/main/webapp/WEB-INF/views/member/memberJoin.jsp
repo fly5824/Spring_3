@@ -7,6 +7,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/bootStrap.jsp"></c:import>
+<style type="text/css">
+
+.r1{
+color:red;}
+.r2{
+color:blue;}
+
+</style>
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
@@ -17,20 +25,24 @@
 			<div class="form-group">
 				<label for="id">ID</label> 
 				<input type="text" class="form-control"	id="id" name="id">
+				<h4 id="idResult"></h4>		
 			<!-- id 는 6글자 이상 -->
 			
 			</div>
 			<div class="form-group">
 				<label for="pw">Password</label>
 				 <input type="password"
-					class="form-control" id="pw" name="pw">
-					<!--  pw 는 8 글자 이상 -->
+					class="form-control" id="pw" name="pw">	
+				<h4 id="pwResult"></h4>	
+				<!--  pw 는 8 글자 이상 -->
 			</div>
 			
 			</div>
 			<div class="form-group">
-				<label for="pw">Password</label> <input type="password"
+				<label for="pw">Password</label>
+				 <input type="password"
 					class="form-control" id="pw2" name="pw">
+			
 					<!-- pw  두개는 일치해야함 -->
 			</div>
 			<div class="form-group">
@@ -52,5 +64,8 @@
 			<input type = "button" value="JOIN" class="btn btn-primary" >
 		</form>
 	</div>
+	<script type="text/javascript" src="../resources/js/memberJoin.js">
+	</script>
+	
 </body>
 </html>

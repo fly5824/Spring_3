@@ -9,38 +9,47 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
 <c:import url="./template/bootStrap.jsp"></c:import>
 
 <link rel="stylesheet" href="./resources/css/test.css">
 <title>Home</title>
+
 </head>
 <body>
 	
 <c:import url="./template/header.jsp"></c:import>
 
-<button onclick="go()">Button</button>
+<button onclick="go()">BUTTON</button>
+<button id="btn">CLICK</button>
+<button id="btn2">CLICK2</button>
+<h1>version 3</h1>
+
+
 
 <script type="text/javascript">
+	let btn = document.getElementById("btn");
+	let btn2 = document.getElementById("btn2");
 	
-		
-	let f1 = function(){
-		alert('익명함수')
+	//btn2.addEventListener("click", go);
+	btn2.addEventListener("click", function(){
+		alert("btn2");
+		go();
+	});
+	
+	
+	//btn.onclick=go;
+	btn.onclick = function() {
+		alert("익명함수");
+		go();
 	}
 	
-	function sum(num1, num2){
-		return num1+num2;
-	}
-	
-	function go(){
+	function go() {
 		alert("hello");
-		let s = sum(1,2);
-		alert(s);
-		f1();
-	
-	
 	}
+	
 </script>
+
+
 
 
 </body>
