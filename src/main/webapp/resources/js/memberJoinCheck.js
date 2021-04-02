@@ -4,6 +4,15 @@
 
 let check = document.getElementsByClassName("check");
 let all = document.getElementById("all");
+const btn = document.getElementById("btn");
+
+btn.addEventListener("click",function(){
+	if(all.checked){
+		location.href="./memberJoin"
+	}else{
+		alert("약관동의 필수")
+	}
+});
 
 all.addEventListener("click", function(){
 	for(let ch of check){

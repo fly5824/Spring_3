@@ -11,22 +11,22 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
-<form action="./noticeInsert" method="post">
 <div class="container">
 <h1>Notice Insert Page</h1>
-<div class="form-group">
-  <label for="usr">title:</label>
-  <input type="text" class="form-control" name="title">
-</div>
-<div class="form-group">
-  <label for="usr">writer:</label>
-  <input type="text" class="form-control" name="writer" readonly="readonly"value="${member.id}">
-
-</div>
-<div class="form-group">
-  <label for="comment">contents:</label>
-  <textarea class="form-control" rows="5" name="contents"></textarea>
-</div>
+<form id="frm" action="./noticeInsert" method="post">
+ <div class="form-group">
+      <label for="writer">Writer:</label>
+      <input type="text" readonly="readonly" value="${member.id}" class="form-control" id="writer" name="writer">
+    </div>
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" class="form-control" id="title" name="title">
+    </div>
+    
+    <div class="form-group">
+      <label for="contents">Contents:</label>
+      <textarea class="form-control" rows="5" id="contents" name="contents"></textarea>
+    </div>
 <button class ="btn btn-primary" onclick="insertCheck()">submit</button>
 <input type="button" value="WRITE" class ="btn btn-primary" onclick="insertCheck()">
 </div>

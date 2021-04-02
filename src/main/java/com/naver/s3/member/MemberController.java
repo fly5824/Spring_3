@@ -1,5 +1,7 @@
 package com.naver.s3.member;
 
+import java.util.Random;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,14 +66,30 @@ public class MemberController {
 	}
 
 	@RequestMapping(value="memberJoin" ,method = RequestMethod.POST)
-	public String memberJoin(MemberDTO memberDTO,HttpSession session)throws Exception{
+	public String memberJoin(MemberDTO memberDTO , Model model)throws Exception{
 
 		int result = memberService.memberJoin(memberDTO);
 		
+//		Random random = new Random();
+//		int result = random.nextInt(2);
+		
+		String message = "회원가입실패";
+		String path="./memberJoin";
+		
 		if(result>0) {
-			session.setAttribute("member", memberDTO);
+			message = "회원가입성공";
+			path="../";
 		}
-		return "redirect:../";
+		model.addAttribute("msg",message);
+		model.addAttribute("path", path);
+		
+		return "common/commonResult";
+		//이 리턴의 주소는 jsp주소를 찾으러 가는거임(리다이렉트가 아님)
+		//리다이렉트는 그 주소가 클라이언트한테 바로 나가는거라서 상대경로를 써주는거라서 리턴이랑 다르다!!!!
+		//view의 jsp의 경로를 리턴해주는것
+		// member/memberJoinResult가 뷰에 담겨있어서 이경로없앞에 prifix를 더해주는거임
+		// 결국 /web-inf/views/member/memberJoinResult.jsp가 됨
+	
 
 	}	
 	

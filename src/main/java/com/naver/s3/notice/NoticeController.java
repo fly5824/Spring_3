@@ -1,6 +1,7 @@
 package com.naver.s3.notice;
 
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,10 +48,22 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value="noticeInsert", method = RequestMethod.POST)
-	public String SetInsert(NoticeDTO noticeDTO)throws Exception{	
-		int result = noticeService.setInsert(noticeDTO);
+	public String SetInsert(NoticeDTO noticeDTO ,Model model)throws Exception{	
 		
-		return "redirect:./noticeList";
+		int result = noticeService.setInsert(noticeDTO);
+//		Random random = new Random();
+//		int result = random.nextInt();
+		
+		String message ="실패";
+		
+		if(result>0) {
+			message= "성공";
+		}
+		
+		model.addAttribute("msg",message);
+		model.addAttribute("path", "./noticeList");
+		
+		return "common/commonResult";
 	}
 	
 	@RequestMapping(value="noticeUpdate")
