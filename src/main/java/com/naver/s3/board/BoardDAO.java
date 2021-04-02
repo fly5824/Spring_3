@@ -9,7 +9,6 @@ public interface BoardDAO {
 	//상수, 추상메서드
 	//접근지정자는 무조건 public abstract
 	
-	
 	//list
 	public List<BoardDTO> getList(Pager pager) throws Exception;
 

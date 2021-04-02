@@ -6,6 +6,7 @@ import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,6 +21,18 @@ public class NoticeController {
 
 	@Autowired
 	private NoticeService noticeService;
+	
+	@GetMapping("noticeSelect")
+	public ModelAndView getSelect(BoardDTO boardDTO)throws Exception{
+		
+		ModelAndView mv = new ModelAndView();
+		
+		boardDTO =noticeService.getSelect(boardDTO);
+		mv.addObject("dto",boardDTO);
+		mv.addObject("board","notice");
+		mv.setViewName("board/boardSelect");
+		return mv;
+	}
 	
 	@RequestMapping("noticeList")
 	public ModelAndView getList(Pager pager)throws Exception{
@@ -36,13 +49,7 @@ public class NoticeController {
 		return mv;
 	}
 	
-	@RequestMapping("noticeSelect")
-	public void getSelect(NoticeDTO noticeDTO ,Model model)throws Exception{	
-		
-		noticeDTO = noticeService.getSelect(noticeDTO);
-		model.addAttribute("dto", noticeDTO);
-		
-	}
+
 	
 	@RequestMapping("noticeInsert")
 	public ModelAndView SetInsert()throws Exception{	
@@ -74,9 +81,9 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value="noticeUpdate")
-	public void setUpdate(NoticeDTO noticeDTO,Model model)throws Exception{	
-		noticeDTO = noticeService.getSelect(noticeDTO);
-		model.addAttribute("dto",noticeDTO);
+	public void setUpdate(BoardDTO boardDTO,Model model)throws Exception{	
+		boardDTO = noticeService.getSelect(boardDTO);
+		model.addAttribute("dto",boardDTO);
 	
 	}
 	

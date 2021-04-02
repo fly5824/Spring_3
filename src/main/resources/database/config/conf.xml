@@ -13,6 +13,8 @@
 		<typeAlias type="com.naver.s3.board.qna.QnaDTO" alias="QnaDTO"/>
 		<typeAlias type="com.naver.s3.board.BoardDTO" alias="BoardDTO"/>
 		<typeAlias type="com.naver.s3.util.Pager" alias="Pager"/>
+		<typeAlias type="java.lang.Long" alias="Long"/>
+		
 	
 	</typeAliases>
 

@@ -44,8 +44,7 @@
 		between #{startRow} and #{lastRow}
 	</select>
 
-	<select id="getSelect" parameterType="NoticeDTO"
-		resultType="NoticeDTO">
+	<select id="getSelect" parameterType="BoardDTO" resultType="NoticeDTO">
 		select * from notice where num= #{num}
 	</select>
 
@@ -54,11 +53,11 @@
 		values(NOTICE_SEQ.nextval,#{title},#{writer},#{contents},#{hit},sysdate)
 	</insert>
 
-	<delete id="setDelete" parameterType="NoticeDTO">
+	<delete id="setDelete" parameterType="BoardDTO">
 		delete notice where num=#{num}
 	</delete>
 
-	<update id="setUpdate" parameterType="NoticeDTO">
+	<update id="setUpdate" parameterType="BoardDTO">
 		update notice set title=#{title},contents=#{contents} where num=#{num}
 	</update>
 
