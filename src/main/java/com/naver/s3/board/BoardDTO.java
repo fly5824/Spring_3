@@ -1,9 +1,8 @@
-package com.naver.s3.notice;
+package com.naver.s3.board;
 
 import java.sql.Date;
 
-public class NoticeDTO {
-	
+public class BoardDTO {
 	private long num;
 	private String title;
 	private String writer;
@@ -47,5 +46,5 @@ public class NoticeDTO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	
+
 }

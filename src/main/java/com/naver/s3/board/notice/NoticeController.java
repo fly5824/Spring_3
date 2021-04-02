@@ -1,4 +1,4 @@
-package com.naver.s3.notice;
+package com.naver.s3.board.notice;
 
 import java.util.List;
 import java.util.Random;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.naver.s3.board.BoardDTO;
 import com.naver.s3.util.Pager;
 
 @Controller
@@ -26,10 +27,11 @@ public class NoticeController {
 		
 		System.out.println(pager.getCurPage());
 		
-		List<NoticeDTO>ar = noticeService.getList(pager);
+		List<BoardDTO>ar = noticeService.getList(pager);
 		//List<NoticeDTO> ar =noticeService.getList(curPage);
 		mv.addObject("list",ar);
-		mv.setViewName("notice/noticeList");
+		mv.setViewName("board/boardList");
+		mv.addObject("board","notice");
 		mv.addObject("pager",pager);
 		return mv;
 	}
@@ -43,7 +45,12 @@ public class NoticeController {
 	}
 	
 	@RequestMapping("noticeInsert")
-	public void SetInsert()throws Exception{	
+	public ModelAndView SetInsert()throws Exception{	
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("board/boardInsert");
+		mv.addObject("board","notice");
+		
+		return mv;
 	
 	}
 	

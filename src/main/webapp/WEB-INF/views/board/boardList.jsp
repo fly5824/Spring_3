@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +14,9 @@
 
 <div class="container">
 
-<h2 class="mt-4">Notice List Page</h2>
+<h2 class="mt-4">${board}List</h2>
+
+
 
 <table class="table">
 <thead class="thead-dark">
@@ -30,7 +32,7 @@
 <c:forEach items="${list}" var="dto">
 	<tr>
 		<td>${dto.num}</td>
-		<td><a href="./noticeSelect?num=${dto.num}">${dto.title}</a></td>
+		<td><a href="./${board}Select?num=${dto.num}">${dto.title}</a></td>
 		<td>${dto.writer}</td>
 		<td>${dto.hit}</td>
 		<td>${dto.regdate}</td>
@@ -43,7 +45,7 @@
 
 </div>
 
-<%-- <div class="container">
+<div class="container">
     <ul class="pagination">
     <c:if test="${pager.pre}">
     <li class="page-item"><a class="page-link" href="./noticeList?curPage=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}">Previous</a></li>
@@ -57,7 +59,7 @@
   </ul>
   
   <div class="input-group mt-3 mb-3">
-<form action="./noticeList" class="form-inline">
+<form action="./${board}List" class="form-inline">
   <div class="input-group-prepend">
    <select class="form-control" name="kind" id="sel1">
     <option>Title</option>
@@ -75,9 +77,9 @@
 </div>
 <c:catch>
 <c:if test="${member.id eq 'admin'}">
-<a href="./noticeInsert" class="btn btn-info" role="button">글작성</a>
+<a href="./${board}Insert" class="btn btn-info" role="button">글작성</a>
 </c:if>
-</c:catch> --%>
+</c:catch>
 </div>
 </body>
 </html>

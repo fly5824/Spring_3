@@ -9,7 +9,9 @@
 		<typeAlias type="com.naver.s3.member.MemberDTO" alias="MemberDTO"/>
 		<typeAlias type="com.naver.s3.bankBook.BankBookDTO" alias="BankBookDTO"/>
 		<typeAlias type="com.naver.s3.account.AccountDTO" alias="AccountDTO"/>
-		<typeAlias type="com.naver.s3.notice.NoticeDTO" alias="NoticeDTO"/>
+		<typeAlias type="com.naver.s3.board.notice.NoticeDTO" alias="NoticeDTO"/>
+		<typeAlias type="com.naver.s3.board.qna.QnaDTO" alias="QnaDTO"/>
+		<typeAlias type="com.naver.s3.board.BoardDTO" alias="BoardDTO"/>
 		<typeAlias type="com.naver.s3.util.Pager" alias="Pager"/>
 	
 	</typeAliases>
