@@ -11,11 +11,14 @@ import com.naver.s3.util.Pager;
 
 @Service
 public class QnaService implements BoardService {
+	
+	@Autowired
+	private QnaDAO QnaDAO;
 
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return QnaDAO.getList(pager);
 	}
 
 	@Override
@@ -27,7 +30,7 @@ public class QnaService implements BoardService {
 	@Override
 	public int setInsert(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return QnaDAO.setInsert(boardDTO);
 	}
 
 	@Override
