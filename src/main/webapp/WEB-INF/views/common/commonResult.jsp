@@ -8,7 +8,7 @@
 <script type="text/javascript">
 
 alert('${msg}');
-location.hrer="{path}";
+location.href="${path}";
 
 
 </script>

@@ -43,7 +43,7 @@
 
 </div>
 
-<%-- <div class="container">
+<div class="container">
     <ul class="pagination">
     <c:if test="${pager.pre}">
     <li class="page-item"><a class="page-link" href="./noticeList?curPage=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}">Previous</a></li>
@@ -77,7 +77,7 @@
 <c:if test="${member.id eq 'admin'}">
 <a href="./noticeInsert" class="btn btn-info" role="button">글작성</a>
 </c:if>
-</c:catch> --%>
+</c:catch>
 </div>
 </body>
 </html>

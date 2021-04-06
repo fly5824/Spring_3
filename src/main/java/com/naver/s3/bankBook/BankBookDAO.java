@@ -11,7 +11,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.naver.s3.util.Pager;
+import com.naver.s3.util.Pager_backUp;
 
 @Repository
 public class BankBookDAO {
@@ -43,7 +43,7 @@ public class BankBookDAO {
 		return result;
 	}
 
-	public List<BankBookDTO> getList(Pager pager)throws Exception {
+	public List<BankBookDTO> getList(Pager_backUp pager)throws Exception {
 		
 		return sqlSession.selectList(NAMESPACE+".getList",pager);
 	}

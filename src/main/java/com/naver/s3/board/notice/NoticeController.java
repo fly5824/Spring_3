@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.naver.s3.board.BoardDTO;
 import com.naver.s3.util.Pager;
+import com.naver.s3.util.Pager_backUp;
 
 @Controller
 @RequestMapping(value = "/notice/*")
@@ -21,6 +23,8 @@ public class NoticeController {
 
 	@Autowired
 	private NoticeService noticeService;
+	
+	
 	
 	@GetMapping("noticeSelect")
 	public ModelAndView getSelect(BoardDTO boardDTO)throws Exception{
@@ -80,24 +84,53 @@ public class NoticeController {
 		return "common/commonResult";
 	}
 	
-	@RequestMapping(value="noticeUpdate")
-	public void setUpdate(BoardDTO boardDTO,Model model)throws Exception{	
-		boardDTO = noticeService.getSelect(boardDTO);
-		model.addAttribute("dto",boardDTO);
 	
-	}
 	
-	@RequestMapping(value="noticeUpdate", method = RequestMethod.POST)
-	public String setUpdate(NoticeDTO noticeDTO)throws Exception{	
-		int result = noticeService.setUpdate(noticeDTO);
+	@PostMapping(value="noticeDelete")
+	public ModelAndView setDelete(BoardDTO boardDTO)throws Exception{	
+		ModelAndView mv = new ModelAndView();
+		int result = noticeService.setDelete(boardDTO);
+		String message = "삭제실패";
+		String path="./noticeList";
+
+		if(result>0) {
+			message="삭제성공";
+		}
 		
-		return "redirect:./noticeList";
-	}
-	
-	@RequestMapping(value="noticeDelete")
-	public String setDelete(NoticeDTO noticeDTO)throws Exception{	
-		int result = noticeService.setDelete(noticeDTO);
+		mv.addObject("msg",message);
+		mv.addObject("path",path);
 		
-		return "redirect:./noticeList";
+		mv.setViewName("common/commonResult");
+		
+		return mv;
 }
+
+	
+	@PostMapping(value="noticeUpdate")
+	public ModelAndView setUpdate(BoardDTO boardDTO,ModelAndView mv) throws Exception{
+		int result = noticeService.setUpdate(boardDTO);
+		
+		if(result>0) {
+			mv.setViewName("redirect:./noticeList");
+			//성공하면 리스트로 이동
+		}else {
+			mv.addObject("msg","수정실패");
+			mv.addObject("path","./noticeList");
+			mv.setViewName("common/commonResult");
+			//실패하면 앨럿창으로 수정실패, 리스트로 이동
+		}
+		
+		return mv;
+	}
+	@GetMapping(value="noticeUpdate")
+	public ModelAndView setUpdate(BoardDTO boardDTO)throws Exception{	
+		ModelAndView mv = new ModelAndView();
+		boardDTO = noticeService.getSelect(boardDTO);
+		
+		mv.addObject("dto",boardDTO);
+		mv.addObject("board","notice");
+		mv.setViewName("board/boardUpdate");
+		
+		return mv;
+	}
 }

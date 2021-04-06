@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.naver.s3.board.BoardDTO;
 import com.naver.s3.util.Pager;
+import com.naver.s3.util.Pager_backUp;
 
 @Controller
 @RequestMapping("/qna/**")
@@ -19,12 +20,42 @@ public class QnaController {
 	@Autowired
 	private QnaService qnaService;
 	
+	@PostMapping("qnaReply")
+	public ModelAndView setReply(QnaDTO qnaDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = qnaService.setReply(qnaDTO);
+		mv.setViewName("redirect:./qnaList");
+		return mv;
+	}
+	
+	
+	@GetMapping("qnaReply")
+	public ModelAndView setReply()throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("board/boardReply");
+		mv.addObject("board","qna");
+		
+		return mv;
+	}
+	
+	
+	@GetMapping("qnaSelect")
+	public ModelAndView getSelect(BoardDTO boardDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		boardDTO =qnaService.getSelect(boardDTO);
+		mv.addObject("board","qna");
+		mv.addObject("dto",boardDTO);
+		mv.setViewName("board/boardSelect");
+		return mv;
+	}
+	
 	@GetMapping("qnaList")
 	public ModelAndView getList(Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		List<BoardDTO>ar = qnaService.getList(pager);
 		mv.addObject("list",ar);
 		mv.addObject("board","qna");
+		mv.addObject("pager",pager);
 		mv.setViewName("board/boardList");
 		
 		return mv;
@@ -48,5 +79,53 @@ public class QnaController {
 		return mv;
 		
 	}
-
+	
+	@PostMapping("qnaDelete")
+	public ModelAndView setDelete(BoardDTO boardDTO)throws Exception{
+		ModelAndView mv= new ModelAndView();
+		int result = qnaService.setDelete(boardDTO);
+		
+		String message ="삭제실패";
+		String path = "./qnaList";
+		
+		if(result>0) {
+			message ="삭제성공";
+			
+		}
+		mv.addObject("msg",message);
+		mv.addObject("path",path);
+		mv.setViewName("common/commonResult");
+		
+		return mv;
+		
+	}
+	
+	@GetMapping
+	public ModelAndView setUpdate(BoardDTO boardDTO, ModelAndView mv)throws Exception{
+		boardDTO = qnaService.getSelect(boardDTO);
+		
+		mv.addObject("dto",boardDTO);
+		mv.addObject("board","notice");
+		mv.setViewName("board/boardUpdate");
+		
+		return mv;
+	}
+	
+	@PostMapping
+	public ModelAndView setUpdate(BoardDTO boardDTO)throws Exception{
+	int result = qnaService.setUpdate(boardDTO);
+	ModelAndView mv = new ModelAndView();
+		if(result>0) {
+			mv.setViewName("redirect:./qnaList");
+			//성공하면 리스트로 이동
+		}else {
+			mv.addObject("msg","수정실패");
+			mv.addObject("path","./qnaList");
+			mv.setViewName("common/commonResult");
+			//실패하면 앨럿창으로 수정실패, 리스트로 이동
+		}
+		
+		return mv;
+	}
+	
 }

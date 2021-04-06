@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.naver.s3.board.BoardDTO;
 import com.naver.s3.board.BoardService;
 import com.naver.s3.util.Pager;
+import com.naver.s3.util.Pager_backUp;
 
 @Service
 public class QnaService implements BoardService {
@@ -15,16 +16,39 @@ public class QnaService implements BoardService {
 	@Autowired
 	private QnaDAO QnaDAO;
 
+	public int setReply(QnaDTO qnaDTO) throws Exception{
+		//부모글의 ref, step, depth 값 조회해야함
+		BoardDTO boardDTO = QnaDAO.getSelecct(qnaDTO);
+		QnaDTO parent = (QnaDTO)boardDTO;
+		System.out.println(parent.getRef());
+		System.out.println(parent.getStep());
+		System.out.println(parent.getDepth());
+		
+		qnaDTO.setRef(parent.getRef());
+		qnaDTO.setStep(parent.getStep()+1);
+		qnaDTO.setDepth(parent.getDepth()+1);
+		
+		int result = QnaDAO.setReplyUpdate(parent);
+		result = QnaDAO.setReply(qnaDTO);
+		
+		return result;
+	}
+	
+	
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
-		
+		//1. row
+		pager.makeRow();
+		//2.pageing
+		long totalCount = QnaDAO.getTotalCount(pager);
+		pager.makeNum(totalCount);
 		return QnaDAO.getList(pager);
 	}
 
 	@Override
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		int result = QnaDAO.setHitUpdate(boardDTO);
+		return QnaDAO.getSelecct(boardDTO);
 	}
 
 	@Override
@@ -36,13 +60,13 @@ public class QnaService implements BoardService {
 	@Override
 	public int setUpdate(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return QnaDAO.setUpdate(boardDTO);
 	}
 
 	@Override
 	public int setDelete(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return QnaDAO.setDelete(boardDTO);
 	}
 	
 }

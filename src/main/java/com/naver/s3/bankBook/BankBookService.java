@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.naver.s3.util.Pager;
+import com.naver.s3.util.Pager_backUp;
 
 @Service
 public class BankBookService {
@@ -21,7 +21,7 @@ public class BankBookService {
 	
 	
 	
-	public List<BankBookDTO> getList(Pager pager) throws Exception{
+	public List<BankBookDTO> getList(Pager_backUp pager) throws Exception{
 		int perPage= 10;
 		int perBlock=5;
 		

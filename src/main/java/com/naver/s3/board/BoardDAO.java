@@ -3,6 +3,7 @@ package com.naver.s3.board;
 import java.util.List;
 
 import com.naver.s3.util.Pager;
+import com.naver.s3.util.Pager_backUp;
 
 public interface BoardDAO {
 	
@@ -19,7 +20,7 @@ public interface BoardDAO {
 	public BoardDTO getSelecct(BoardDTO boardDTO)throws Exception;
 
 	//hit update
-	public void setHitUpdate(BoardDTO boardDTO) throws Exception;
+	public int setHitUpdate(BoardDTO boardDTO) throws Exception;
 	
 	//글 추가
 	public int setInsert(BoardDTO boardDTO) throws Exception;
