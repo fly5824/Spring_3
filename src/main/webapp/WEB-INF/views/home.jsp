@@ -34,22 +34,16 @@
 	</select>
 
 
-
-<div id="result">
-
-</div>
-
 <script type="text/javascript">
 	$("#btn2").click(function(){
 		$("#result").prepend('<li>go</li>');
 	});
 
-	$("btn").click(function(){
-		for(let i =1; i<13;i++){
-			$("#mon").append("<option>"+i"+</option>");
-		}
-	})
 	
+		for(let i =1;i<13;i++){
+			$("#mon").append("<option>"+i+"</option>");
+		}
+
 
 </script>
 

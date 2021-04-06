@@ -29,9 +29,16 @@
     </div>
 <button class ="btn btn-primary" onclick="insertCheck()">submit</button>
 <input type="button" id="btn" value="WRITE" class ="btn btn-primary" onclick="insertCheck()">
+</form>
 </div>
 
-</form>
+<div id="sample">
+	<div class="form-group">
+	
+	<input type ="file" class="form-control-file border" name="file">"
+	    </div>
+</div>
+
 
 <script type="text/javascript" src="../resources/jquery/boardInsert.js"></script>
 </body>
