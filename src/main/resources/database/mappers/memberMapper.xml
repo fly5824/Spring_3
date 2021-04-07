@@ -6,6 +6,12 @@
     
   <mapper namespace="com.naver.s3.member.MemberDAO">
   
+  <insert id= "setMemberFileInsert" parameterType="MemberFileDTO">
+  
+  insert into memberFile values(#{num},#{id},#{fileName},#{origineName})
+  
+  </insert>
+  
   <update id="memberUpdate" parameterType="MemberDTO">
   update member set pw=#{pw},email=#{email},name=#{name},phone=#{phone} where id=#{id}
  

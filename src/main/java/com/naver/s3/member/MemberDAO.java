@@ -17,6 +17,15 @@ public class MemberDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.naver.s3.member.MemberDAO";
 	
+	//setMemberFileInsert
+	public int setMemberFileInsert(MemberFileDTO memberFileDTO)throws Exception{
+		
+		return sqlSession.insert(NAMESPACE+".setMemberFileInsert",memberFileDTO);
+	}
+	
+	
+	
+	
 	public int memberUpdate(MemberDTO memberDTO) throws Exception{
 		//id를 제외하고 나머지를 업데이트
 		

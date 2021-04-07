@@ -41,23 +41,37 @@ public class MemberDAOTest extends MyAbstractTest {
 //		assertEquals(1, result);
 //	}
 	
-	
-	
 	@Test
-	public void memberUpdateTest () throws Exception {
-		MemberDTO memberDTO = new MemberDTO();
+	public void setMemberFileInsertTest()throws Exception{
+		MemberFileDTO memberFileDTO = new MemberFileDTO();
+		memberFileDTO.setNum(3);
+		memberFileDTO.setId("id11");
+		memberFileDTO.setFileName("f11");
+		memberFileDTO.setOrigineName("o11");
 		
-		memberDTO.setId("id1");
-		memberDTO.setEmail("hihi@naver.com");
-		memberDTO.setName("hihi");
-		memberDTO.setPhone("01022334455");
-		memberDTO.setPw("hihi");
-		
-		int result = memberDAO.memberUpdate(memberDTO);
-		
+		int result = memberDAO.setMemberFileInsert(memberFileDTO);
 		assertEquals(1, result);
 		
+		
 	}
+	
+	
+	
+//	@Test
+//	public void memberUpdateTest () throws Exception {
+//		MemberDTO memberDTO = new MemberDTO();
+//		
+//		memberDTO.setId("id1");
+//		memberDTO.setEmail("hihi@naver.com");
+//		memberDTO.setName("hihi");
+//		memberDTO.setPhone("01022334455");
+//		memberDTO.setPw("hihi");
+//		
+//		int result = memberDAO.memberUpdate(memberDTO);
+//		
+//		assertEquals(1, result);
+//		
+//	}
 	
 //	@Test
 //	public void memberDeleteTest() throws Exception{
