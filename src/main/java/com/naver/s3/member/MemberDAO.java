@@ -23,7 +23,9 @@ public class MemberDAO {
 		return sqlSession.insert(NAMESPACE+".setMemberFileInsert",memberFileDTO);
 	}
 	
-	
+	public MemberFileDTO memberLoginFile(MemberDTO memberDTO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+".memberLoginFile",memberDTO);
+	}
 	
 	
 	public int memberUpdate(MemberDTO memberDTO) throws Exception{

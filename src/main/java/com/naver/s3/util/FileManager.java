@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Component
 public class FileManager {
 	
-	public void save(String name, MultipartFile multipartFile, HttpSession session)throws Exception{
+	public String save(String name, MultipartFile multipartFile, HttpSession session)throws Exception{
 		//1. 경로 설정
 		String path = session.getServletContext().getRealPath("resources/upload/member2");
 		System.out.println(path);
@@ -40,6 +40,7 @@ public class FileManager {
 		//FileCopyUtils.copy(multipartFile.getBytes(), file);
 		multipartFile.transferTo(file);
 	
+		return fileName;
 	
 	}
 	

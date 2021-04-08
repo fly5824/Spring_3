@@ -27,9 +27,31 @@
   
   </insert>
   
-  <select id = "memberLogin" parameterType="MemberDTO" resultType="MemberDTO">
+  <select id = "memberLogin" parameterType="MemberDTO" resultMap="memberLoginResult">
   
-  select* from member where id=#{id} and pw=#{pw}
+  select M.*, MF.*
+  from member M left join memberFile MF
+  on M.id = MF.id
+  
+  where M.id=#{id} and M.pw=#{pw}
+  
+  </select>
+  
+  <resultMap type="MemberDTO" id="memberLoginResult">
+  	<id property="id" column ="id"/>
+  	<result property="pw" column="pw"/>
+  	<result property="name" column="name"/>
+  	<result property="email" column="email"/>
+  	<result property="phone" column="phone"/>
+  	<association property="memberFileDTO" javaType="MemberFileDTO">
+  		<id property="num" column="num"/>
+  		<result property="fileName" column="fileName"/>
+  		<result property="origineName" column="origineName"/>
+  	</association>
+  	
+  	</resultMap>
+  <select id="memberLoginFile" resultType="MemberFileDTO" parameterType="MemberDTO">
+  select*from memberFile where id = #{id}
   </select>
   
   </mapper>

@@ -69,11 +69,11 @@ public class MemberController {
 	@RequestMapping(value="memberJoin" ,method = RequestMethod.POST)
 	public String memberJoin(MemberDTO memberDTO, MultipartFile avatar, Model model, HttpSession session)throws Exception{
 
+		int result = memberService.memberJoin(memberDTO,avatar,session);
 		System.out.println(avatar.getName());
 		System.out.println(avatar.getOriginalFilename());
 		System.out.println(avatar.getSize());
 		System.out.println(avatar.isEmpty());
-		int result = memberService.memberJoin(memberDTO,avatar,session);
 		
 //		Random random = new Random();
 //		int result = random.nextInt(2);

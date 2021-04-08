@@ -18,7 +18,7 @@
 
 	<div class="container">
 		<h2>${board}form</h2>
-		<form id="frm" action="./${board}Insert" method="post">
+		<form id="frm" action="./${board}Insert" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="writer">Writer:</label> <input type="text"
 					readonly="readonly" value="${member.id}"

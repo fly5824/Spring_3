@@ -32,7 +32,7 @@
 			</div>
 			<div class="form-group">
 				<label for="pw">Password</label> <input type="password"
-					class="form-control" id="pw" name="pw">
+					class="form-control" id="pw" name="pw1">
 				<h4 id="pwResult"></h4>
 				<!-- PW는 8글자 이상 -->
 			</div>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.naver.s3.board.BoardDTO;
@@ -66,11 +67,18 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value="noticeInsert", method = RequestMethod.POST)
-	public String SetInsert(NoticeDTO noticeDTO ,Model model)throws Exception{	
+	public String SetInsert(NoticeDTO noticeDTO ,Model model, MultipartFile [] files)throws Exception{	
 		
-		int result = noticeService.setInsert(noticeDTO);
-//		Random random = new Random();
-//		int result = random.nextInt();
+		System.out.println("Insert Start");
+		for(MultipartFile mf:files) {
+			
+			System.out.println(mf.getOriginalFilename());
+		}
+		System.out.println("Insert Finish");
+		
+		
+		int result = noticeService.setInsert(noticeDTO,files);
+
 		
 		String message ="실패";
 		
