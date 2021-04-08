@@ -7,8 +7,8 @@ public class BoardDTO {
 	private String title;
 	private String writer;
 	private String contents;
-	private long hit;
 	private Date regdate;
+	private long hit;
 	
 	public long getNum() {
 		return num;

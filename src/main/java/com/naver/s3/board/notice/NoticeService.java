@@ -53,6 +53,7 @@ public class NoticeService implements BoardService {
 	boardDTO.setNum(num);
 	
 	int result = noticeDAO.setInsert(boardDTO);
+	
 	//글번호찾기
 		
 	for(MultipartFile mf:files) {

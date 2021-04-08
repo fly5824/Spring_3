@@ -82,7 +82,7 @@
 
 	<insert id="setInsert" parameterType="BoardDTO">
 		insert into notice
-		values(#{num},#{title},#{writer},#{contents},#{hit},sysdate,0)
+		values(#{num},#{title},#{writer},#{contents},#{hit},sysdate)
 	</insert>
 
 	<delete id="setDelete" parameterType="BoardDTO">

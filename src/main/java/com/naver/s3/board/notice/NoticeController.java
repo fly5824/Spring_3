@@ -67,18 +67,10 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value="noticeInsert", method = RequestMethod.POST)
-	public String SetInsert(NoticeDTO noticeDTO ,Model model, MultipartFile [] files)throws Exception{	
+	public String SetInsert(BoardDTO boardDTO ,Model model, MultipartFile [] files)throws Exception{	
 		
-		System.out.println("Insert Start");
-		for(MultipartFile mf:files) {
-			
-			System.out.println(mf.getOriginalFilename());
-		}
-		System.out.println("Insert Finish");
+		int result = noticeService.setInsert(boardDTO,files);
 		
-		
-		int result = noticeService.setInsert(noticeDTO,files);
-
 		
 		String message ="실패";
 		
