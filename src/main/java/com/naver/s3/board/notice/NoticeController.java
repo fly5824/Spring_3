@@ -71,7 +71,6 @@ public class NoticeController {
 		
 		int result = noticeService.setInsert(boardDTO,files);
 		
-		
 		String message ="실패";
 		
 		if(result>0) {

@@ -51,11 +51,12 @@ public class MemberDAO {
 	
 	public MemberDTO memberLogIn(MemberDTO memberDTO) throws Exception {
 		
-		return sqlSession.selectOne(NAMESPACE+".memberLogin",memberDTO);
+		return sqlSession.selectOne(NAMESPACE+".memberLogin",memberDTO);	
+	}
 	
-	
-		 
+	public MemberFileDTO getMemberFile(MemberDTO memberDTO)throws Exception{
 		
+	return sqlSession.selectOne(NAMESPACE+".getMemberFile",memberDTO);
 	}
 }
 

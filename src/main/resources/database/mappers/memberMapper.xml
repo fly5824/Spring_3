@@ -6,6 +6,14 @@
     
   <mapper namespace="com.naver.s3.member.MemberDAO">
   
+  <select id ="getMemberFile" parameterType="MemberDTO" resultType="MemberFileDTO">
+  
+  select fileName from memberFile where id=#{id}
+  
+  </select>
+  
+  
+  
   <insert id= "setMemberFileInsert" parameterType="MemberFileDTO">
   
   insert into memberFile values(#{num},#{id},#{fileName},#{origineName})

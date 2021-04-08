@@ -1,15 +1,25 @@
 package com.naver.s3.board.qna;
 
 import java.sql.Date;
+import java.util.List;
 
 import com.naver.s3.board.BoardDTO;
+import com.naver.s3.board.BoardFileDTO;
 
 public class QnaDTO extends BoardDTO {
+	
 	
 private long ref;
 private long step;
 private long depth;
+private List<BoardFileDTO> boardfiles;	
 
+public List<BoardFileDTO> getBoardfiles() {
+	return boardfiles;
+}
+public void setBoardfiles(List<BoardFileDTO> boardfiles) {
+	this.boardfiles = boardfiles;
+}
 public long getRef() {
 	return ref;
 }

@@ -46,7 +46,7 @@
 		<div class="input-group">
 			<div class="custom-file">
 				<input type="file"  id="inputGroupFile04"
-					class="form-control-file border">
+					class="form-control-file border" name="files">
 			</div>
 			<div class="input-group-append delete">
 				<input class="btn btn-outline-secondary" type="button"
