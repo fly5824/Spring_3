@@ -12,6 +12,9 @@ public class CommentsService {
 	private CommentsDAO commentsDAO;
 	
 	
+	public int setInsert(CommentsDTO commentsDTO)throws Exception{
+		return commentsDAO.setInsert(commentsDTO);
+	}
 	public List<CommentsDTO> getList(CommentsDTO commentsDTO)throws Exception{
 		
 		return commentsDAO.getList(commentsDTO);

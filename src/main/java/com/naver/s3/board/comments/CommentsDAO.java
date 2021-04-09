@@ -13,9 +13,14 @@ public class CommentsDAO {
 	private SqlSession sqlsession;
 	private final String NAMESPACE="com.naver.s3.board.comments.CommentsDAO";
 	
+	public int setInsert(CommentsDTO commentsDTO) throws Exception{
+		return sqlsession.insert(NAMESPACE+"setInsert", commentsDTO);
+	}
+	
 	public List<CommentsDTO> getList(CommentsDTO commentsDTO) throws Exception {
 		
 		return sqlsession.selectList(NAMESPACE+"getList",commentsDTO);
 	}
 
+	
 }
