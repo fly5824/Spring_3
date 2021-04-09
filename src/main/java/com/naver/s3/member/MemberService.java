@@ -1,6 +1,7 @@
 package com.naver.s3.member;
 
 import java.io.File;
+import java.lang.reflect.Member;
 import java.util.Calendar;
 import java.util.UUID;
 
@@ -20,6 +21,12 @@ public class MemberService {
 	private MemberDAO memberDAO;
 	@Autowired
 	private FileManager fileManager;
+	
+	public MemberDTO memberIdCheck(MemberDTO memberDTO)throws Exception{
+		
+		return memberDAO.memberIdCheck(memberDTO);
+	}
+	
 	
 	public int memberDelete(MemberDTO memberDTO, HttpSession session) throws Exception{
 		

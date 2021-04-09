@@ -17,6 +17,13 @@ public class MemberDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.naver.s3.member.MemberDAO";
 	
+	public MemberDTO memberIdCheck(MemberDTO memberDTO)throws Exception{
+		
+		return sqlSession.selectOne(NAMESPACE+".memberIdCheck",memberDTO);
+	}
+	
+	
+	
 	//setMemberFileInsert
 	public int setMemberFileInsert(MemberFileDTO memberFileDTO)throws Exception{
 		
