@@ -6,6 +6,16 @@
 
 <mapper namespace="com.naver.s3.board.notice.NoticeDAO">
 
+	<select id="getFileSelect" parameterType="BoardFileDTO" resultType="BoardFileDTO">
+	select * from noticeFiles where fileNum=#{fileNum}
+	</select>
+
+	<delete id="setFileDelete" parameterType="BoardFileDTO">
+		delete noticeFiles where fileNum=#{fileNum}
+	</delete>
+	<!-- 파일만 제거하는 쿼리문 -->
+
+
 	<insert id="setFileInsert" parameterType="BoardFileDTO">
 	
 	insert into noticeFiles values (file_seq.nextva,#{num},#{fileName},#{origineName})	

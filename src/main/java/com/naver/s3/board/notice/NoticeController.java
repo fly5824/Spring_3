@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.naver.s3.board.BoardDTO;
+import com.naver.s3.board.BoardFileDTO;
 import com.naver.s3.util.Pager;
 import com.naver.s3.util.Pager_backUp;
 
@@ -25,7 +26,20 @@ public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
 	
-	
+	@GetMapping("fileDelete")
+	public ModelAndView setFileDelete(BoardFileDTO boardFileDTO)throws Exception{
+	//삭제할 파일넘을 매개변수로 받음	
+		
+		ModelAndView mv = new ModelAndView();
+		
+		System.out.println(boardFileDTO.getFileNum());
+		int result=noticeService.setFileDelete(boardFileDTO);
+		//삭제해야할 파일의 파일네임을 받아서 삭제
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+		
+	}
 	
 	@GetMapping("noticeSelect")
 	public ModelAndView getSelect(BoardDTO boardDTO)throws Exception{
@@ -106,8 +120,8 @@ public class NoticeController {
 
 	
 	@PostMapping(value="noticeUpdate")
-	public ModelAndView setUpdate(BoardDTO boardDTO,ModelAndView mv) throws Exception{
-		int result = noticeService.setUpdate(boardDTO);
+	public ModelAndView setUpdate(BoardDTO boardDTO,MultipartFile [] files, ModelAndView mv) throws Exception{
+		int result = noticeService.setUpdate(boardDTO,files);
 		
 		if(result>0) {
 			mv.setViewName("redirect:./noticeList");
