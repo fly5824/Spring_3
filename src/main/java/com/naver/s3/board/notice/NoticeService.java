@@ -25,6 +25,18 @@ public class NoticeService implements BoardService {
 	private FileManager fileManager;
 	@Autowired
 	private HttpSession session;
+	
+	
+	public boolean setSummerFileDelete(String fileName) throws Exception{
+		boolean result = fileManager.delete("notifce", fileName, session);
+		return result;
+	}
+	
+	
+	public String setSummerFileUpload(MultipartFile file)throws Exception{
+		String fileName=fileManager.save("notice", file, session);
+		return fileName;
+	}
 
 	public int setFileDelete(BoardFileDTO boardFileDTO) throws Exception{
 		//삭제할 파일의 파일네임을 가져오기

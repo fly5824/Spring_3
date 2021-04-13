@@ -26,6 +26,24 @@ public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
 	
+	
+	@PostMapping("summerFileDelete")
+	public ModelAndView setSummerFileDelete(String fileName)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		return mv;
+	}
+	
+	@PostMapping("summerFileUpload")
+	public ModelAndView setSummerFileUpload(MultipartFile file)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		String fileName = noticeService.setSummerFileUpload(file);
+		fileName ="../resources/upload/notice/"+fileName;
+		mv.addObject("result",fileName);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
+	
 	@GetMapping("fileDelete")
 	public ModelAndView setFileDelete(BoardFileDTO boardFileDTO)throws Exception{
 	//삭제할 파일넘을 매개변수로 받음	
