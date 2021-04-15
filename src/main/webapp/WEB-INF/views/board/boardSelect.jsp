@@ -24,6 +24,7 @@
 					${file.origineName} </a>
 			</c:forEach>
 		</div>
+		
 
 		<!-- 댓글리스트 -->
 		<div id="comments" title="${dto.num}"></div>

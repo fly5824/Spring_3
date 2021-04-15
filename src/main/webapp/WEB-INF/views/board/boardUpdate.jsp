@@ -20,7 +20,7 @@
 		<h2>${board}Update form</h2>
 
 		<form id="frm" action="./${board}Update" method="post" enctype="multipart/form-data">
-			<input type="hidden" name="num" value="${param.num}">
+			<input type="hidden" name="num" value="${dto.num}">
 			<div class="form-group">
 				<label for="writer">Writer:</label> <input type="text"
 					readonly="readonly" value="${dto.writer}" class="form-control"
@@ -36,13 +36,6 @@
 				<textarea class="form-control" rows="5" id="contents"
 					name="contents">${dto.contents}</textarea>
 			</div>
-			<c:forEach items="${dto.boardFiles}" var="file">
-				<div class="input-group">
-					<div>
-						<span>${file.origineName}</span>
-						<span class="fileDelete" title="${file.fileNum}">X</span>
-					</div>
-			</c:forEach>
 			
 				<input type="button" id="add" value="ADD" class="btn btn-danger">
 		

@@ -13,7 +13,7 @@
 <div class="container">
 	
 			<h2>${board} List</h2>
-		
+		<div class="container">
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
@@ -44,6 +44,7 @@
 			</tbody>
 		
 		</table>
+	</div>
 	</div>
 	
 	<div class="container">
